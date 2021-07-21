@@ -11,13 +11,14 @@ var about = require('./routes/about');
 var contact = require('./routes/contact');
 var projects = require('./routes/projects');
 var djs = require('./routes/discordjs');
-var nodejs = require('./routes/nodejs');
+var nodejs = require('./routes/nodejs')
 var topgg = require('./routes/topgg')
 var djsfun = require('./routes/djsfun')
 var npkg = require('./routes/np')
-var twitch = require('./routes/twitch')
 var github = require('./routes/github')
 var paypal = require('./routes/paypal')
+var disserver = require('./routes/disserver')
+
 
 
 
@@ -26,8 +27,21 @@ var paypal = require('./routes/paypal')
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', './views');
+
+app.engine('html', (path, ops = {}, cb) => {
+  (require('fs')).readFile(path, (err, doc) => {
+    if (err) return cb(err);
+    try {
+      cb(null, doc.toString());
+    } catch (error) {
+      cb(error);
+    }
+  });
+});
+
+
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,16 +59,9 @@ app.use('/nodejs', nodejs);
 app.use('/topgg', topgg);
 app.use('/djsfun', djsfun);
 app.use('/np', npkg);
-app.use('/twitch', twitch);
 app.use('/paypal', paypal);
 app.use('/github', github);
-
-
-
-
-
-
-
+app.use('/discordserver', disserver)
 
 
 // catch 404 and forward to error handler
