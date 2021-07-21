@@ -10,15 +10,14 @@ var usersRouter = require('./routes/users');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
 var projects = require('./routes/projects');
-var djs = require('./routes/redirects/discordjs');
-var nodejs = require('./routes/redirects/nodejs')
-var topgg = require('./routes/redirects/topgg')
-var djsfun = require('./routes/redirects/djsfun')
-var npkg = require('./routes/redirects/np')
-var github = require('./routes/redirects/github')
-var paypal = require('./routes/redirects/paypal')
-var disserver = require('./routes/redirects/disserver')
-
+var djs = require('./routes/discordjs');
+var nodejs = require('./routes/nodejs');
+var topgg = require('./routes/topgg')
+var djsfun = require('./routes/djsfun')
+var npkg = require('./routes/np')
+var twitch = require('./routes/twitch')
+var github = require('./routes/github')
+var paypal = require('./routes/paypal')
 
 
 
@@ -46,10 +45,9 @@ app.use('/nodejs', nodejs);
 app.use('/topgg', topgg);
 app.use('/djsfun', djsfun);
 app.use('/np', npkg);
+app.use('/twitch', twitch);
 app.use('/paypal', paypal);
 app.use('/github', github);
-app.use('/discordserver', disserver);
-
 
 
 
