@@ -4,7 +4,29 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/darkmode.css')
     link(rel="icon" type="gif" sizes="300x250" href="https://cdn.discordapp.com/attachments/851508427531878451/866501785199837194/pfp.gif")
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.13.0/css/all.css')
+   script.
+            function light() {
+            document.getElementById("body").style.backgroundColor = "white"
+            document.getElementById("html").style.backgroundColor = "white"
+            document.getElementById("title").style.color = "rgb(50,53,59)"
+            document.getElementById("foot").style.color = "rgb(50,53,59)"
+            document.getElementById("h2").style.color = "rgb(50,53,59)"
+            document.getElementById("h1").style.color = "rgb(50,53,59)"
+            document.getElementById("email").style.color = "rgb(50,53,59)"
+            document.getElementById("myTopnav").style.backgroundColor = "white"
+            document.getElementsByTagName("a").style.color = "rgb(50,53,59)"
+            }
+            function dark() {
+            document.getElementById("body").style.backgroundColor = "rgb(50,53,59)"
+            document.getElementById("html").style.backgroundColor = "rgb(50,53,59)"
+            document.getElementById("title").style.color = "white";
+            }
+
+
+  
 
   body
     header
@@ -16,17 +38,29 @@ html
           span.navbar-toggler-icon  
         #navbarCollapse.collapse.navbar-collapse
           ul.navbar-nav.mr-auto
+
+          
             li.nav-item(class=(title === 'about' ? 'active' : ''))
               a.nav-link(href="/about")  About Me
                 span.sr-only (current)
             li.nav-item(class=(title === 'about' ? 'active' : ''))
               a.nav-link(href="/projects") Projects
+              
             li.nav-item(class=(title === 'contact' ? 'active' : ''))
               a.nav-link(href="/contact") Contact
-        <a href="/twitch" class="fa fa-twitch"></a>
-        <a href="/github" class="fa fa-github"></a>
-        <a href="/paypal" class="fa fa-paypal"></a>
-  
+              
+
+         //  li.nav-item(class=(title === 'darkmode' ? 'active' : ''))
+            <a id="light-theme" onclick="light()">Light</a>
+            a.nav-link(onclick="dark()") dark
+
+              
+
+        <a href="/discordserver" class="fab fa-discord"></a>
+        <a href="https://open.spotify.com/user/hjfdhopch6gxjkuifiux7bscf" class="fab fa-spotify"></a>
+        <a href="/github" class="fab fa-github"></a>
+        <a href="/paypal" class="fab fa-paypal"></a>
+
 
 
     block content
